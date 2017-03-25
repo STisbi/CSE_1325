@@ -1,30 +1,33 @@
 #ifndef _COMPONENT_H
 #define _COMPONENT_H
+#include "Torso.h"
 
 // This class will be one above the individual parts
 
 class Component
 {
 	public:
-		Component(  string a_name,
-					Type a_type,
-					string a_description,
-					int a_part_num,
-					int a_weight,
-					int a_cost) :
+		Component(  string aName,
+					int aType,
+					string aDescription,
+					int aPart_num,
+					int aWeight,
+					int aCost) :
 
-					name(a_name),
-					type(a_type),
-					description(a_description),
-					part_num(a_part_num),
-					weight(a_weight),
-					cost(a_cost) {}
+					Name(aName),
+					type(aType),
+					Description(aDescription),
+					Part_num(aPart_num),
+					Weight(aWeight),
+					Cost(aCost) {}
 
 	private:
-		string name;
-		Type type;
-		string description;
-		int part_num;
-		int weight;
-		int cost;
+		string Name;
+		int type;
+		string Description;
+		int Part_num;
+		int Weight;
+		int Cost;
+
+		Torso torso;
 };

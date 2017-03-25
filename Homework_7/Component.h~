@@ -1,13 +1,31 @@
 #ifndef _COMPONENT_H
 #define _COMPONENT_H
+#include "Type.h"
+
+// This class will be one above the individual parts
 
 class Component
 {
 	public:
-		string name;
-		string description;
-		int part_num;
-		int weight;
-		int cost;
-		
-}
+		Component(  string aName,
+					Type aType,
+					string aDescription,
+					int aPart_num,
+					int aWeight,
+					int aCost) :
+
+					Name(aName),
+					type(aType),
+					Description(aDescription),
+					Part_num(aPart_num),
+					Weight(aWeight),
+					Cost(aCost) {}
+
+	private:
+		string Name;
+		Type type;
+		string Description;
+		int Part_num;
+		int Weight;
+		int Cost;
+};
