@@ -1,8 +1,12 @@
 #ifndef _TORSO_H
 #define _TORSO_H
 
-class Torso
+class Torso : public Component
 {
 	public:
+		Torso(int val) : mBatteryCompartment(val) {}
+	private:
 		int mBatteryCompartment;
 };
+
+#endif

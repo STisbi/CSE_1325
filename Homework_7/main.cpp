@@ -7,8 +7,7 @@ using namespace std;
 
 int main(void)
 {
-	int name;
-	int type;
+	string name;
 	int part_number;
 	int weight;
 	int cost;
@@ -17,22 +16,19 @@ int main(void)
 	cout << "Name?\n";
 	getline(cin, name);
 
-	cout << "Type?\n";
-	getline(cin, type);
-
 	cout << "Part Number?\n";
-	getline(cin, part_number);
+	cin >> part_number;
 
 	cout << "Weight?\n";
-	getline(cin, weight);
+	cin >> weight;
 
 	cout << "Cost?\n";
-	getline(cin, cost);
+	cin >> cost;
 
 	cout << "Desciption?\n";
 	getline(cin, description);
 
-    Component component(name, type, part_number, weight, cost, description);
+    Component component(name, part_number, weight, cost, description);
 
 	return 0;
 }

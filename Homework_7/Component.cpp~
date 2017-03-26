@@ -1,7 +1,9 @@
 #include <iostream>
 #include "Component.h"
 
-Component( string aName, int aType, int aPart_num, int aWeight, int aCost, string aDescription)
+using namespace std;
+
+Component( string aName, int aType, int aPart_num, int aWeight, int aCost, string aDescription )
 {
 	switch(aType)
 	{
