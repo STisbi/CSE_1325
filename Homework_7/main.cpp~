@@ -33,6 +33,4 @@ int main(void)
 	getline(cin, description);
 
     Component component(name, type, part_number, weight, cost, description);
-
-	return 0;
 }

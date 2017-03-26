@@ -1,6 +1,6 @@
 #ifndef _COMPONENT_H
 #define _COMPONENT_H
-#include "Type.h"
+#include "Torso.h"
 
 // This class will be one above the individual parts
 
@@ -8,7 +8,7 @@ class Component
 {
 	public:
 		Component(  string aName,
-					Type aType,
+					int aType,
 					string aDescription,
 					int aPart_num,
 					int aWeight,
@@ -23,9 +23,11 @@ class Component
 
 	private:
 		string Name;
-		Type type;
+		int type;
 		string Description;
 		int Part_num;
 		int Weight;
 		int Cost;
+
+		Torso torso;
 };

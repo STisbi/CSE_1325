@@ -4,5 +4,7 @@
 class Torso
 {
 	public:
+		Torso(int val) : mBatteryCompartment(val) {}
+	private:
 		int mBatteryCompartment;
 };

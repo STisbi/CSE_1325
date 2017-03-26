@@ -9,17 +9,17 @@ class Component
 	public:
 		Component(  string aName,
 					int aType,
-					string aDescription,
 					int aPart_num,
 					int aWeight,
-					int aCost) :
+					int aCost,
+					string aDescription) :
 
 					Name(aName),
 					type(aType),
-					Description(aDescription),
 					Part_num(aPart_num),
 					Weight(aWeight),
-					Cost(aCost) {}
+					Cost(aCost), 
+					Description(aDescription) {}
 
 	private:
 		string Name;
