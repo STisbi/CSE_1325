@@ -1,8 +1,10 @@
 #include "Torso.h"
 
-using namespace std;
-
-Torso(int cBatteryCompartment, std::string Name, int Part_num, int Weight, int Cost, std::string Description)
+Torso::Torso(int aBatteryCompartment, std::string aName, int aPartNum, int aWeight, int aCost, std::string aDescription) : Component( aName,
+																																	  aPartNum,
+																																	  aWeight,
+																																	  aCost,
+																																	  aDescription )
 {
-	mBatteryCompartment = cBatteryCompartment;
+	mBatteryCompartment = aBatteryCompartment;
 }

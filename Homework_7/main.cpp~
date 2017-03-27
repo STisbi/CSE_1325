@@ -8,7 +8,6 @@ using namespace std;
 int main(void)
 {
 	string name;
-	int type;
 	int part_number;
 	int weight;
 	int cost;
@@ -16,9 +15,6 @@ int main(void)
 
 	cout << "Name?\n";
 	getline(cin, name);
-
-	cout << "Type?\n";
-	cin >> type;
 
 	cout << "Part Number?\n";
 	cin >> part_number;

@@ -1,10 +1,10 @@
 #include "Component.h"
 
-Component(std::string Name, int Part_num, int Weight, int Cost, std::string Description)
+Component::Component(std::string aName, int aPartNum, int aWeight, int aCost, std::string aDescription)
 {
-	aName = Name;
-	aPart_num = Part_num;
-	aWeight = Weight;
-	aCost = Cost;
-	aDescription = Description;
+	mName = aName;
+	mPartNum = aPartNum;
+	mWeight = aWeight;
+	mCost = aCost;
+	mDescription = aDescription;
 }

@@ -28,7 +28,7 @@ int main(void)
 	cout << "Desciption?\n";
 	getline(cin, description);
 
-    Component component(name, part_number, weight, cost, description);
+//    Component component(name, part_number, weight, cost, description);
 
 	return 0;
 }
