@@ -10,7 +10,7 @@ class Torso : public Component
 		int mBatteryCompartment;
 
 	public:
-		Torso(int cBatteryCompartment, std::string Name, int Part_num, int Weight, int Cost, std::string Description);
+		Torso(int aBatteryCompartment, std::string aName, int aPart_num, int aWeight, int aCost, std::string aDescription);
 };
 
 #endif
