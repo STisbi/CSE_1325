@@ -11,7 +11,7 @@ class Locomotor : public Component
 		int mPowerConsumed;
 
 	public:
-		Locomotor(int aMaxSpeed, int aPowerConsumed, std::string aName, int aPart_num, int aWeight, int aCost, std::string aDescription);
+		Locomotor(int aMaxSpeed, aPowerConsumed, std::string aName, int aPart_num, int aWeight, int aCost, std::string aDescription);
 };
 
 #endif

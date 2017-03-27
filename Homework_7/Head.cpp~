@@ -6,4 +6,5 @@ Head::Head(std::string aName, int aPartNum, int aWeight, int aCost, std::string 
 																											aCost,
 																											aDescription )
 {
+
 }
