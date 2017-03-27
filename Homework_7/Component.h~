@@ -14,17 +14,11 @@ class Component
 					int Part_num,
 					int Weight,
 					int Cost,
-					std::string Description) :
-
-					aName(Name),
-					aPart_num(Part_num),
-					aWeight(Weight),
-					aCost(Cost), 
-					aDescription(Description) {}
+					std::string Description );
 
 	private:
 		std::string aName;	// if not std:: then get error. Have to use using namespace std here
-							// However to avoid including this file ALONG WITH 'using the namespace std', good practice to put std:: istead
+							// However to avoid including this file ALONG WITH 'using the namespace std', good practice to put std:: instead
 		std::string aDescription;
 		int aPart_num;
 		int aWeight;
