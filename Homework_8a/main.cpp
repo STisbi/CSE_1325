@@ -45,7 +45,7 @@ int main(void)
 	cout << "1. Torso\n2. Head\n3. Arm\n4. Locomotor\n5. Batteries\n\nChoice: ";
 	cin >> choice;
 	cin.ignore();
-
+/*
 	switch(choice - 1)
 	{
 		case 0:
@@ -99,6 +99,6 @@ int main(void)
 			break;
 		}
 	}
-
+*/
 	return 0;
 }

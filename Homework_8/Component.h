@@ -4,15 +4,9 @@
 #include <iostream>
 #include <string>
 
-#include "Torso.h"
-#include "Head.h"
-#include "Arm.h"
-#include "Batteries.h"
-#include "Locomotor.h"
-
 // Base class for the individual parts
 
-class Component : public Torso, public Head, public Arm, public Batteries, public Locomotor 
+class Component
 {
 	private:
 		std::string mName;	// if not std:: then get error. Have to use using namespace std here
@@ -23,40 +17,10 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 		std::string mDescription;
 
 	public:
-		Component(  std::string aName,				// Constructor for Torso
+		Component(  std::string aName,
 					int aPartNum,
 					int aWeight,
 					int aCost,
-					std::string aDescription,
-					int aBatteryCompartments );
-
-		Component(  std::string aName,				// Constructor for Head
-					int aPartNum,
-					int aWeight,
-					int aCost,
-					std::string aDescription);
-
-		Component(  std::string aName,				// Constructor for Arm
-					int aPartNum,
-					int aWeight,
-					int aCost,
-					std::string aDescription,
-					int aPowerConsumed );
-
-		Component(  std::string aName,				// Constructor for Batteries
-					int aPartNum,
-					int aWeight,
-					int aCost,
-					std::string aDescription,
-					int aEnergy );
-
-		Component(  std::string aName,				// Constructor for Locomotor
-					int aPartNum,
-					int aWeight,
-					int aCost,
-					std::string aDescription,
-					int aMaxSpeed,
-					int aPowerConsumed );
+					std::string aDescription );
 };
-
 #endif
