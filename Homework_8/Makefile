@@ -2,10 +2,10 @@ CXX = g++
 CXXFLAGS = -g -pedantic -std=c++0x
 
 
-main: main.o Component.o Torso.o Head.o Arm.o Locomotor.o Batteries.o
-	$(CXX) $(CXXFLAGS) -o main main.o Component.o Torso.o Head.o Arm.o Locomotor.o Batteries.o
+main: main.o Component.o Torso.o Head.o Arm.o Locomotor.o Batteries.o Model.o
+	$(CXX) $(CXXFLAGS) -o main main.o Component.o Torso.o Head.o Arm.o Locomotor.o Batteries.o Model.o
 
-main.o: main.cpp Torso.h Component.h
+main.o: main.cpp Component.h Torso.h Head.o Arm.o Locomotor.o Batteries.o Model.o
 	$(CXX) $(CXXFLAGS) -c main.cpp
 
 Component.o: Component.cpp Component.h
@@ -25,3 +25,6 @@ Locomotor.o: Locomotor.cpp Locomotor.h
 
 Batteries.o: Batteries.cpp Batteries.h
 	$(CXX) $(CXXFLAGS) -c Batteries.cpp
+
+Model.o: Model.cpp Model.h
+	$(CXX) $(CXXFLAGS) -c Model.cpp

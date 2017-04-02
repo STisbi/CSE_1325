@@ -4,9 +4,15 @@
 #include <iostream>
 #include <string>
 
-// Base class for the individual parts
+#include "Torso.h"
+#include "Head.h"
+#include "Arm.h"
+#include "Batteries.h"
+#include "Locomotor.h"
 
-class Component
+// Derived class from multiple individual parts
+
+class Component : public Torso, public Head, public Arm, public Batteries, public Locomotor 
 {
 	private:
 		std::string mName;	// if not std:: then get error. Have to use using namespace std here
@@ -17,10 +23,13 @@ class Component
 		std::string mDescription;
 
 	public:
-		Component(  std::string aName,
+		Component(  std::string aName,				// Constructor
 					int aPartNum,
 					int aWeight,
 					int aCost,
-					std::string aDescription );
+					std::string aDescription,
+					int aChoice	);
+		void mCreate_Torso();
 };
+
 #endif

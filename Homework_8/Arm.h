@@ -1,16 +1,13 @@
 #ifndef _ARM_H
 #define _ARM_H
 
-#include <string>
-#include "Component.h"
-
-class Arm : public Component
+class Arm
 {
 	private:
 		int mPowerConsumed;
 
 	public:
-		Arm(int aPowerConsumed, std::string aName, int aPart_num, int aWeight, int aCost, std::string aDescription);
+		Arm(int aPowerConsumed);
 };
 
 #endif

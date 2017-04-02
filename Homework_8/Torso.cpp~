@@ -1,0 +1,5 @@
+#include "Torso.h"
+
+v
+
+Torso::Torso(int aBatteryCompartment)  : mBatteryCompartment(aBatteryCompartment) { }

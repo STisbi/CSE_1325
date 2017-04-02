@@ -8,41 +8,19 @@
 #include "Arm.h"
 #include "Locomotor.h"
 #include "Batteries.h"
+#include "Model.h"
 
 using namespace std;
 
 int main(void)
 {
-	string name;
-	int part_number;
-	int weight;
-	int cost;
-	string description;
-	int battery;
 	int choice;
-	int powerConsumed;
-	int maxSpeed;
-	int energy;
+	string name;
+	int model_number;
+	int price;
 
-	cout << "Name?\n";
-	getline(cin, name);
 
-	cout << "Part Number?\n";
-	cin >> part_number;
-	cin.ignore();
-
-	cout << "Weight?\n";
-	cin >> weight;
-	cin.ignore();
-
-	cout << "Cost?\n";
-	cin >> cost;
-	cin.ignore();
-
-	cout << "Desciption?\n";
-	getline(cin, description);
-
-	cout << "1. Torso\n2. Head\n3. Arm\n4. Locomotor\n5. Batteries\n\nChoice: ";
+	cout << "1. Create Model\n\nChoice: ";
 	cin >> choice;
 	cin.ignore();
 
@@ -50,51 +28,20 @@ int main(void)
 	{
 		case 0:
 		{
-			cout << "\nTorso";
-			cout << "\nNumber of Batteries?: ";
-			cin >> battery;
+			cout << "\nNew Model";
+
+			cout << "Name?\n";
+			getline(cin, name);
+
+			cout << "Model Number?\n";
+			cin >> model_number;
 			cin.ignore();
-			Torso torso(battery, name, part_number, weight, cost, description);
-			cout << "\nCreated.\n";
-			break;
-		}
-		case 1:
-		{
-			cout << "\nHead\n";
-			cout << "Created.\n";
-			Head head(name, part_number, weight, cost, description);
-			break;
-		}
-		case 2:
-		{
-			cout << "\nArm";
-			cout << "\nPower Consumed (in watts): ";
-			cin >> powerConsumed;
+
+			cout << "Price?\n";
+			cin >> price;
 			cin.ignore();
-			Arm arm(powerConsumed, name, part_number, weight, cost, description);
-			cout << "\nCreated.\n";
-			break;
-		}
-		case 3:
-		{
-			cout << "\nLocomotor";
-			cout << "\nMax Speed: ";
-			cin >> maxSpeed;
-			cin.ignore();
-			cout << "Power Consumed (in watts): ";
-			cin >> powerConsumed;
-			cin.ignore();
-			Locomotor(maxSpeed, powerConsumed, name, part_number, weight, cost, description);
-			cout << "\nCreated.\n";
-			break;
-		}
-		case 4:
-		{
-			cout << "\nBatteries";
-			cout << "\nEnergy: ";
-			cin >> energy;
-			cin.ignore();
-			Batteries batteries(energy, name, part_number, weight, cost, description);
+
+			Model model(name, model_number, price);
 			cout << "\nCreated.\n";
 			break;
 		}
