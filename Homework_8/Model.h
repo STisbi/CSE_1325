@@ -3,6 +3,9 @@
 
 #include <string>
 
+#include "Component.h"
+#include "Torso.h"
+
 class Model
 {
 	private:
