@@ -8,7 +8,7 @@ class Locomotor
 		int mPowerConsumed;
 
 	public:
-		Locomotor(int aMaxSpeed, int aPowerConsumed) : mMaxSpeed(aMaxSpeed), mPowerConsumed(mPowerConsumed);
+		Locomotor(int aMaxSpeed, int aPowerConsumed);
 };
 
 #endif

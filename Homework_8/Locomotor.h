@@ -9,6 +9,7 @@ class Locomotor
 
 	public:
 		Locomotor(int aMaxSpeed, int aPowerConsumed);
+		Locomotor();
 };
 
 #endif

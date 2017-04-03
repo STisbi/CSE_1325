@@ -8,6 +8,7 @@ class Batteries
 
 	public:
 		Batteries(int aEnergy);
+		Batteries();
 };
 
 #endif

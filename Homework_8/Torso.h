@@ -9,6 +9,7 @@ class Torso
 
 	public:
 		Torso(int aBatteryCompartment);
+		Torso();
 };
 
 #endif

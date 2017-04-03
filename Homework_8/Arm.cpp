@@ -3,3 +3,5 @@
 using namespace std;
 
 Arm::Arm(int aPowerConsumed)  : mPowerConsumed(aPowerConsumed) { }
+
+Arm::Arm() {}

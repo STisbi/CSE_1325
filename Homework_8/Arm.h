@@ -8,6 +8,7 @@ class Arm
 
 	public:
 		Arm(int aPowerConsumed);
+		Arm();
 };
 
 #endif

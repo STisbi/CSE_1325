@@ -8,7 +8,7 @@ class Torso
 		int mBatteryCompartment;
 
 	public:
-		Torso(int aBatteryCompartment) : mBatteryCompartment(aBatteryCompartment)
+		Torso(int aBatteryCompartment);
 };
 
 #endif

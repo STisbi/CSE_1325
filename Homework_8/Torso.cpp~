@@ -1,5 +1,5 @@
 #include "Torso.h"
 
-v
+using namespace std;
 
 Torso::Torso(int aBatteryCompartment)  : mBatteryCompartment(aBatteryCompartment) { }

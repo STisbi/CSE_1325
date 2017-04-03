@@ -7,7 +7,8 @@ class Arm
 		int mPowerConsumed;
 
 	public:
-		Arm(int aPowerConsumed) : mPowerConsumed(aPowerConsumed);
+		Arm(int aPowerConsumed);
+		Arm::Arm();
 };
 
 #endif
