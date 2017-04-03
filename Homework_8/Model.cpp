@@ -37,7 +37,6 @@ Model::Model(std::string aModelName, int aModelNumber, int aModelPrice) : mModel
 
 	Component component(name, part_number, weight, cost, description, choice);
 	cout << "\nComponent Created.";
-
 }
 
 std::string Model::mModel_Info()

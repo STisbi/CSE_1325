@@ -17,8 +17,9 @@ class Shop
 		Shop();
 		void mCreate_Model();
 		void mCreate_Component();
-		std::string mList_Models();
-		std::string mList_Components();
+		void mList_Models();
+		void mList_Components();
 };
 
 #endif
+

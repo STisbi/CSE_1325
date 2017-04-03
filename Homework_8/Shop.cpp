@@ -76,7 +76,7 @@ void Shop::mList_Components()
 {
 	for(int i = 0; i < vComponent.size(); i++)
 	{
-		vComponent(i).mComponent_Info();
+		cout << vComponent[i].mComponent_Info();
 	}
 }
 
@@ -84,7 +84,7 @@ void Shop::mList_Models()
 {
 	for(int i = 0; i < vModel.size(); i++)
 	{
-		vModel(i).mModel_Info();
+		cout << vModel[i].mModel_Info();
 	}
 }
 

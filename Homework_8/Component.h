@@ -38,5 +38,6 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 		void mCreate_Locomotor();
 
 		std::string mComponent_Info();
-
+};
 #endif
+
