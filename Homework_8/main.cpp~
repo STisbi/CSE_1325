@@ -20,7 +20,7 @@ int main(void)
 	int price;
 
 
-	cout << "1. Create Model\n\nChoice: ";
+	cout << "1. Create Part\n2. Create Model\n3. Coming Soon\n9. Exit\n\nChoice: ";
 	cin >> choice;
 	cin.ignore();
 
@@ -28,21 +28,30 @@ int main(void)
 	{
 		case 0:
 		{
-			cout << "\nNew Model";
-
-			cout << "\nName: ";
+			Component component();
+			break;
+		}
+		case 1:
+		{
+			cout << "Model Name: ";
 			getline(cin, name);
 
-			cout << "\nModel Number: ";
+			cout << "Model Number: ";
 			cin >> model_number;
 			cin.ignore();
 
-			cout << "\nPrice: ";
+			cout << "Model Price: ";
 			cin >> price;
 			cin.ignore();
 
 			Model model(name, model_number, price);
-			cout << "\nModel Created.";
+			cout << "\nModel Created.\n";
+			break;
+		}
+		case 9:
+		{
+			cout << "Goodbye.\n"
+			exit(0);
 			break;
 		}
 	}

@@ -23,13 +23,19 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 		std::string mDescription;
 
 	public:
-		Component(  std::string aName,				// Constructor
+		Component(  std::string aName,				// Constructor for model creation
 					int aPartNum,
 					int aWeight,
 					int aCost,
 					std::string aDescription,
 					int aChoice	);
+		Component(); 	// Constructor for part creation
+
 		void mCreate_Torso();
+		void mCreate_Head();
+		void mCreate_Arm();
+		void mCreate_Batteries();
+		void mCreate_Locomotor();
 };
 
 #endif

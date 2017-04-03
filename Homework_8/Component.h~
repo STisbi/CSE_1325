@@ -22,8 +22,6 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 		int mCost;
 		std::string mDescription;
 
-		int dBatteryCompartment;
-
 	public:
 		Component(  std::string aName,				// Constructor
 					int aPartNum,
@@ -32,6 +30,10 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 					std::string aDescription,
 					int aChoice	);
 		void mCreate_Torso();
+		void mCreate_Head();
+		void mCreate_Arm();
+		void mCreate_Batteries();
+		void mCreate_Locomotor();
 };
 
 #endif
