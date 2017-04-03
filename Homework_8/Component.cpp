@@ -130,6 +130,17 @@ void Component::mCreate_Locomotor()
 	Locomotor locomotor(maxSpeed, powerConsumed);
 }
 
+std::string Component::mComponent_Info()
+{
+	std::string partNum = std::to_string(mPartNum);
+	std::string weight = std::to_string(mWeight);
+	std::string cost = std::to_string(mCost);
+
+	return("\n\nComponent Name: " + mName + "\nComponent Part Number: " + partNum + "\nComponent Weight: " + weight + 
+			"\nComponent Cost: " + cost + "\nComponent Description: " + mDescription);
+}
+
+
 
 
 

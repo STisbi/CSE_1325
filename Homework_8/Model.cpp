@@ -39,3 +39,14 @@ Model::Model(std::string aModelName, int aModelNumber, int aModelPrice) : mModel
 	cout << "\nComponent Created.";
 
 }
+
+std::string Model::mModel_Info()
+{
+	std::string modelNumber = std::to_string(mModelNumber);	
+	std::string modelPrice = std::to_string(mModelPrice);
+	return ("\n\nModel Name: " + mModelName + "\nModel Number: " + modelNumber + "\nModel Price: " + modelPrice);
+}
+
+
+
+

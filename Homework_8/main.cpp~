@@ -50,7 +50,7 @@ int main(void)
 		}
 		case 9:
 		{
-			cout << "Goodbye.\n"
+			cout << "Goodbye.\n";
 			exit(0);
 			break;
 		}

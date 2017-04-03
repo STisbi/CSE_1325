@@ -15,5 +15,6 @@ class Model
 	public:
 		Model(std::string aModelName, int aModelNumber, int aModelPrice);
 		int mTotal_Price();
+		std::string mModel_Info();
 };
 #endif

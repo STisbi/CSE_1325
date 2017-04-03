@@ -17,22 +17,22 @@ Model::Model(std::string aModelName, int aModelNumber, int aModelPrice) : mModel
 	cin.ignore();
 
 
-	cout << "Name: ";
+	cout << "Component Name: ";
 	getline(cin, name);
 
-	cout << "Part Number: ";
+	cout << "Component Part Number: ";
 	cin >> part_number;
 	cin.ignore();
 
-	cout << "Weight: ";
+	cout << "Component Weight: ";
 	cin >> weight;
 	cin.ignore();
 
-	cout << "Cost: ";
+	cout << "Component Cost: ";
 	cin >> cost;
 	cin.ignore();
 
-	cout << "Description: ";
+	cout << "Component Description: ";
 	getline(cin, description);
 
 	Component component(name, part_number, weight, cost, description, choice);
