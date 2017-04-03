@@ -30,19 +30,19 @@ int main(void)
 		{
 			cout << "\nNew Model";
 
-			cout << "Name?\n";
+			cout << "\nName: ";
 			getline(cin, name);
 
-			cout << "Model Number?\n";
+			cout << "\nModel Number: ";
 			cin >> model_number;
 			cin.ignore();
 
-			cout << "Price?\n";
+			cout << "\nPrice: ";
 			cin >> price;
 			cin.ignore();
 
 			Model model(name, model_number, price);
-			cout << "\nCreated.\n";
+			cout << "\nModel Created.\n";
 			break;
 		}
 	}

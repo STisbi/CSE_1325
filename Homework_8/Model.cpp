@@ -11,8 +11,8 @@ Model::Model(std::string aModelName, int aModelNumber, int aModelPrice) : mModel
 	int cost;
 	std::string description;
 
-	cout << "Add Parts\n";
-	cout << "1. Create Torso\n\nChoice: ";
+	cout << "\n\nWhat kind of component are you adding?";
+	cout << "\n1. Torso\n\nChoice: ";
 	cin >> choice;
 	cin.ignore();
 
@@ -22,26 +22,26 @@ Model::Model(std::string aModelName, int aModelNumber, int aModelPrice) : mModel
 		{
 			cout << "\nNew Torso";
 
-			cout << "Name?\n";
+			cout << "\nName: ";
 			getline(cin, name);
 
-			cout << "Part Number?\n";
+			cout << "\nPart Number: ";
 			cin >> part_number;
 			cin.ignore();
 
-			cout << "Weight?\n";
+			cout << "\nWeight: ";
 			cin >> weight;
 			cin.ignore();
 
-			cout << "Cost?\n";
+			cout << "\nCost: ";
 			cin >> cost;
 			cin.ignore();
 
-			cout << "Description\n";
+			cout << "\nDescription: ";
 			getline(cin, description);
 
 			Component component(name, part_number, weight, cost, description, choice);
-			cout << "\nComponent Created.\n";
+			cout << "\nComponent Created.";
 			break;
 		}
 	}

@@ -9,10 +9,9 @@ Component::Component(std::string aName, int aPartNum, int aWeight, int aCost, st
 	{
 		case 0:
 		{
-			cout << "\nTorso";
-			cout << "\nNumber of Batteries?: ";
+			cout << "\nNumber of Batteries: ";
 			mCreate_Torso();
-			cout << "\nCreated.\n";
+			cout << "\nTorso Created.";
 			break;
 		}
 	}
