@@ -136,8 +136,8 @@ std::string Component::mComponent_Info()
 	std::string weight = std::to_string(mWeight);
 	std::string cost = std::to_string(mCost);
 
-	return("\n\nComponent Name: " + mName + "\nComponent Part Number: " + partNum + "\nComponent Weight: " + weight + 
-			"\nComponent Cost: " + cost + "\nComponent Description: " + mDescription);
+	return("\nComponent Name: " + mName + "\nComponent Part Number: " + partNum + "\nComponent Weight: " + weight + 
+			"\nComponent Cost: " + cost + "\nComponent Description: " + mDescription + "\n");
 }
 
 

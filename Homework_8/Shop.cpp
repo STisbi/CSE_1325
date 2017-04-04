@@ -8,7 +8,7 @@ Shop::Shop()
 
 	while(1)
 	{
-		cout << "1. Create Part\n2. Create Model\n3. List Components\n4. List Models\n9. Exit\n\nChoice: ";
+		cout << "\n1. Create Part\n2. Create Model\n3. List Components\n4. List Models\n9. Exit\n\nChoice: ";
 		cin >> choice;
 		cin.ignore();
 
@@ -34,7 +34,7 @@ Shop::Shop()
 				mList_Models();
 				break;
 			}
-			case 9:
+			case 8:
 			{
 				cout << "Goodbye.\n";
 				exit(0);
