@@ -39,7 +39,7 @@ Model::Model(std::string aModelName, int aModelNumber, int aModelPrice) : mModel
 		getline(cin, description);
 
 		Component component(name, part_number, weight, cost, description, choice);
-		cout << "\nComponent Created. Would you like to add an additional part?\n1. Yes\n2. No";
+		cout << "\nComponent Created. Would you like to add an additional part?\n1. Yes\n2. No\n\nChoice: ";
 		cin >> choice;
 		cin.ignore();
 

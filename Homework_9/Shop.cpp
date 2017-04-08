@@ -8,7 +8,7 @@ Shop::Shop()
 
 	while(1)
 	{
-		cout << "1. Create Part\n2. Create Model\n3. List Components\n4. List Models\n9. Exit\n\nChoice: ";
+		cout << "\n1. Create Part\n2. Create Model\n3. List Components\n4. List Models\n5. Add Customer\n6. List Customers\n9. Exit\n\nChoice: ";
 		cin >> choice;
 		cin.ignore();
 
@@ -32,6 +32,16 @@ Shop::Shop()
 			case 3:
 			{
 				mList_Models();
+				break;
+			}
+			case 4:
+			{
+				mAdd_Customer();
+				break;
+			}
+			case 5:
+			{
+				mList_Customers();
 				break;
 			}
 			case 8:
@@ -88,7 +98,34 @@ void Shop::mList_Models()
 	}
 }
 
+void Shop::mAdd_Customer()
+{
+	std::string name;
+	int phone;
+	int email;
 
+	cout << "Customer Name: ";
+	getline(cin, name);
 
+	cout << "Customer Phone Number: ";
+	cin >> phone;
+	cin.ignore();
+
+	cout << "Customer Email: ";
+	cin >> email;
+	cin.ignore();
+
+	Customer customer(name, phone, email);
+	vCustomer.push_back(customer);
+	cout << "\nCustomer Created.\n";
+}
+
+void Shop::mList_Customers()
+{
+	for(int i = 0; i < vCustomer.size(); i++)
+	{
+		cout << vCustomer[i].mCustomer_Info();
+	}
+}
 
 
