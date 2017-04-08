@@ -101,19 +101,17 @@ void Shop::mList_Models()
 void Shop::mAdd_Customer()
 {
 	std::string name;
-	int phone;
-	int email;
+	std::string phone;
+	std::string email;
 
 	cout << "Customer Name: ";
 	getline(cin, name);
 
 	cout << "Customer Phone Number: ";
-	cin >> phone;
-	cin.ignore();
+	getline(cin, phone);
 
 	cout << "Customer Email: ";
-	cin >> email;
-	cin.ignore();
+	getline(cin, email);
 
 	Customer customer(name, phone, email);
 	vCustomer.push_back(customer);

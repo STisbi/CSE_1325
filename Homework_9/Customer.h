@@ -7,11 +7,11 @@ class Customer
 {
 	private:
 		std::string mCustomerName;
-		int mCustomerPhone;
-		int mCustomerEmail;
+		std::string mCustomerPhone;
+		std::string mCustomerEmail;
 
 	public:
-		Customer(std::string aCustomerName, int aCustomerPhone, int aCustomerEmail);
+		Customer(std::string aCustomerName, std::string aCustomerPhone, std::string aCustomerEmail);
 		std::string mCustomer_Info();
 
 };
