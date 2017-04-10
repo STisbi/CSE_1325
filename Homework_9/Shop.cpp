@@ -147,8 +147,8 @@ void Shop::mAdd_Employee()
 	cout << "Employee Number: ";
 	getline(cin, number);
 
-	Sales sales(name, number);
-	vEmployee.push_back(sales);
+	Employee employee(name, number);
+	vEmployee.push_back(employee);
 	cout << "\nEmployee Created.\n";
 }
 
@@ -156,6 +156,6 @@ void Shop::mList_Employees()
 {
 	for(int i = 0; i < vEmployee.size(); i++)
 	{
-		cout << vEmployee[i].mEmployee.Info();
+		cout << vEmployee[i].mEmployee_Info();
 	}
 }

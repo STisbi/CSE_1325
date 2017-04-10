@@ -3,10 +3,10 @@ CXXFLAGS = -g -pedantic -std=c++0x
 
 default: main
 
-main: main.o Component.o Torso.o Head.o Arm.o Locomotor.o Batteries.o Model.o Shop.o Customer.o Sales.o
-	$(CXX) $(CXXFLAGS) -o main main.o Component.o Torso.o Head.o Arm.o Locomotor.o Batteries.o Model.o Shop.o Customer.o Sales.o
+main: main.o Component.o Torso.o Head.o Arm.o Locomotor.o Batteries.o Model.o Shop.o Customer.o Employee.o
+	$(CXX) $(CXXFLAGS) -o main main.o Component.o Torso.o Head.o Arm.o Locomotor.o Batteries.o Model.o Shop.o Customer.o Employee.o
 
-main.o: main.cpp Component.h Torso.h Head.o Arm.o Locomotor.o Batteries.o Model.o Shop.o Customer.o Sales.o
+main.o: main.cpp Component.h Torso.h Head.o Arm.o Locomotor.o Batteries.o Model.o Shop.o Customer.o Employee.o
 	$(CXX) $(CXXFLAGS) -c main.cpp
 
 Component.o: Component.cpp Component.h
@@ -36,8 +36,8 @@ Shop.o: Shop.cpp Shop.h
 Customer.o: Customer.cpp Customer.h
 	$(CXX) $(CXXFLAGS) -c Customer.cpp
 
-Sales.o: Sales.cpp Sales.h
-	$(CXX) $(CXXFLAGS) -c Sales.cpp
+Employee.o: Employee.cpp Employee.h
+	$(CXX) $(CXXFLAGS) -c Employee.cpp
 
 clean:
 	$(RM) main *.o *~

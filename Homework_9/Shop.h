@@ -7,6 +7,7 @@
 #include "Model.h"
 #include "Component.h"
 #include "Customer.h"
+#include "Employee.h"
 
 class Shop
 {
