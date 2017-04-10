@@ -7,10 +7,10 @@ class Sales
 {
 	private:
 		std::string mEmployeeName;
-		std::string mEmployeeNumber;
+		int mEmployeeNumber;
 		int mPassword = 1234;
 	public:
-		Sales(std::string aEmployeeName, std::string aEmployeeNumber);
+		Sales(std::string aEmployeeName, int aEmployeeNumber);
 		std::string mEmployee_Info();
 };
 

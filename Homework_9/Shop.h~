@@ -24,7 +24,6 @@ class Shop
 		void mList_Components();
 		void mAdd_Customer();
 		void mList_Customers();
-		void mAdd_Employee();
 		void mList_Employees();
 };
 
