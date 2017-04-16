@@ -170,14 +170,12 @@ void Shop::mSave_Shop()
 	fb.open("test.txt", std::ios::out);
 	std::ostream ost(&fb);
 
-	for(int i = 0; i < vComponent.size(); i++)
+	for(int i = 0; i < vComponent.size(); i++)	// for each component object on the vector
 	{
-//		vComponent[i].Torso::mSave(ost);
-		for(int j = 0; j < vComponent[i].vTorso.size(); j++)
+		for(int j = 0; j < vComponent[i].vTorso.size(); j++)	//for each part of the a single component object
 		{
-			vComponent[i].vTorso[j].mSave(ost);
+			vComponent[i].vTorso[j].mSave(ost);	// access its save function
 		}
-//		ost << vComponent[i].Torso::mTorso_Info();
 	}
 
 	fb.close();

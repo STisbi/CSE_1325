@@ -22,7 +22,7 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 		int mWeight;
 		int mCost;
 		std::string mDescription;
-		std::vector <Torso> vTorso;
+
 
 	public:
 		Component(  std::string aName,				// Constructor for model creation
@@ -40,6 +40,11 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 		void mCreate_Locomotor();
 
 		std::string mComponent_Info();
+		std::vector <Torso> vTorso;
+		std::vector <Arm> vArm;
+		std::vector <Head> vHead;
+		std::vector <Batteries> vBatteries;
+		std::vector <Locomotor> vLocomotor;		
 };
 #endif
 

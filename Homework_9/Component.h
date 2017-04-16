@@ -41,6 +41,10 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 
 		std::string mComponent_Info();
 		std::vector <Torso> vTorso;
+		std::vector <Head> vHead;
+		std::vector <Arm> vArm;
+		std::vector <Batteries> vBatteries;
+		std::vector <Locomotor> vLocomotor;		
 };
 #endif
 

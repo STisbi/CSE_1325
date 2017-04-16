@@ -1,2 +1,0 @@
-#Torso Number of batteries: 555
-#Torso Number of batteries: 666

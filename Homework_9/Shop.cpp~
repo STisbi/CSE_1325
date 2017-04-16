@@ -172,12 +172,10 @@ void Shop::mSave_Shop()
 
 	for(int i = 0; i < vComponent.size(); i++)
 	{
-//		vComponent[i].Torso::mSave(ost);
-		for(int j = 0; j < vComponent.vTorso.size(); j++)
+		for(int j = 0; j < vComponent[i].vTorso.size(); j++)
 		{
 			vComponent[i].vTorso[j].mSave(ost);
 		}
-//		ost << vComponent[i].Torso::mTorso_Info();
 	}
 
 	fb.close();

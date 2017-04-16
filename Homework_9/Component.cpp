@@ -83,17 +83,17 @@ void Component::mCreate_Torso()
 	int lBatteryCompartment;
 
 	cout << "Number of Batteries: ";
-//	getline(cin, lBatteryCompartment);
 	cin >> lBatteryCompartment;
 	cin.ignore();
 
-	Torso torso(lBatteryCompartment);
-	vTorso.push_back(torso);
+	Torso torso(lBatteryCompartment);	// this is a locol object, is destroyed once gone, thus a problem when an instance of component instances a class of torso
+	vTorso.push_back(torso);			// a rough work around to this problem, component creates a vector to keep them around (inheritance)
 }
 
 void Component::mCreate_Head()
 {
-	Head head();
+	Head head;
+	vHead.push_back(head);
 }
 
 void Component::mCreate_Arm()
@@ -104,7 +104,8 @@ void Component::mCreate_Arm()
 	cin >> powerConsumed;
 	cin.ignore();
 
-	Arm arm(powerConsumed);	
+	Arm arm(powerConsumed);
+	vArm.push_back(arm);	
 }
 
 void Component::mCreate_Batteries()
@@ -116,6 +117,7 @@ void Component::mCreate_Batteries()
 	cin.ignore();
 
 	Batteries batteries(energy);
+	vBatteries.push_back(batteries);
 }
 
 void Component::mCreate_Locomotor()
@@ -130,6 +132,7 @@ void Component::mCreate_Locomotor()
 	cin >> powerConsumed;
 
 	Locomotor locomotor(maxSpeed, powerConsumed);
+	vLocomotor.push_back(locomotor);
 }
 
 std::string Component::mComponent_Info()
