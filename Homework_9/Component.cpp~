@@ -87,8 +87,7 @@ void Component::mCreate_Torso()
 	cin >> lBatteryCompartment;
 	cin.ignore();
 
-	Torso torso(lBatteryCompartment);
-	vTorso.push_back(torso);
+	static const Torso torso(lBatteryCompartment);
 }
 
 void Component::mCreate_Head()

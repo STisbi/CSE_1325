@@ -12,5 +12,5 @@ Arm::Arm(istream& ist)	// Read input from stream to variable
 
 void Arm::mSave(ostream& ost)	// Output variable to stream
 {
-	ost << mPowerConsumed << '\n' << endl;
+	ost  << "#Arm " <<  mPowerConsumed << endl;
 }
