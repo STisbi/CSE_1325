@@ -92,8 +92,8 @@ void Component::mCreate_Torso()
 
 void Component::mCreate_Head()
 {
-	Head head();
-//	vHead.push_back(head);
+	Head head;
+	vHead.push_back(head);
 }
 
 void Component::mCreate_Arm()

@@ -1,5 +1,5 @@
-#ifndef _LOCOMOTOR_H
-#define _LOCOMOTOR_H
+#ifndef _TORSO_H
+#define _TORSO_H
 
 #include <iostream>
 #include <ostream>
@@ -9,16 +9,17 @@
 
 using namespace std;
 
-class Locomotor
+class Torso
 {
 	private:
-		int mMaxSpeed;
-		int mPowerConsumed;
+		int mBatteryCompartment;
 
 	public:
-		Locomotor(int aMaxSpeed, int aPowerConsumed);
-		Locomotor();
+		Torso(int aBatteryCompartment);
+		Torso();
+
 		void mSave(ostream& ost);
+		std::string mTorso_Info();
 };
 
 #endif

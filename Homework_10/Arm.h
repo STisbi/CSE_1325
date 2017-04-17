@@ -1,5 +1,5 @@
-#ifndef _LOCOMOTOR_H
-#define _LOCOMOTOR_H
+#ifndef _ARM_H
+#define _ARM_H
 
 #include <iostream>
 #include <ostream>
@@ -9,15 +9,15 @@
 
 using namespace std;
 
-class Locomotor
+class Arm
 {
 	private:
-		int mMaxSpeed;
 		int mPowerConsumed;
 
 	public:
-		Locomotor(int aMaxSpeed, int aPowerConsumed);
-		Locomotor();
+		Arm(int aPowerConsumed);
+		Arm();
+		Arm(istream& ist);
 		void mSave(ostream& ost);
 };
 

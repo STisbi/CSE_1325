@@ -166,16 +166,37 @@ void Shop::mList_Employees()
 
 void Shop::mSave_Shop()
 {
+	std::string file;
+	int i, j;
+
+	cout << "Save file name: ";
+	getline(cin, file);
 	std::filebuf fb;
-	fb.open("test.txt", std::ios::out);
+	fb.open(file, std::ios::out);
 	std::ostream ost(&fb);
 
-	for(int i = 0; i < vComponent.size(); i++)
+	for(i = 0; i < vComponent.size(); i++)	// for each component object on the vector
 	{
-		for(int j = 0; j < vComponent[i].vTorso.size(); j++)
+		for(j = 0; j < vComponent[i].vArm.size(); j++)	//for each part of the a single component object	ARM
+		{
+			vComponent[i].vArm[j].mSave(ost);	// access its save function
+		}
+		for(j = 0; j < vComponent[i].vBatteries.size(); j++)	//BATTERIES
+		{
+			vComponent[i].vBatteries[j].mSave(ost);
+		}
+		for(j = 0; j < vComponent[i].vHead.size(); j++)			//HEAD
+		{
+			vComponent[i].vHead[j].mSave(ost);
+		}
+		for(j = 0; j < vComponent[i].vLocomotor.size(); j++)	//LOCOMOTOR
+		{
+			vComponent[i].vLocomotor[j].mSave(ost);
+		}
+		for(j = 0; j < vComponent[i].vTorso.size(); j++)		//COMPONENT
 		{
 			vComponent[i].vTorso[j].mSave(ost);
-		}
+		}		
 	}
 
 	fb.close();
