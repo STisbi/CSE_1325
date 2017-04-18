@@ -24,11 +24,11 @@ using namespace std;
 class Arm		/*=============================================================================================== ARM */
 {
 	private:
-		int mPowerConsumed;
+		string mPowerConsumed;
 
 	public:
 		Arm() {}
-		Arm(int aPowerConsumed)  : mPowerConsumed(aPowerConsumed) { }
+		Arm(string aPowerConsumed)  : mPowerConsumed(aPowerConsumed) { }
 		Arm(istream& ist)	// Read input from stream to variable
 		{
 			ist >> mPowerConsumed;
@@ -42,11 +42,11 @@ class Arm		/*===================================================================
 class Batteries		/*=============================================================================================== BATTERIES */
 {
 	private:
-		int mEnergy;
+		string mEnergy;
 
 	public:
 		Batteries() {}
-		Batteries(int aEnergy)  : mEnergy(aEnergy) { }
+		Batteries(string aEnergy)  : mEnergy(aEnergy) { }
 		void mSave(ostream& ost)
 		{
 			ost << "#Batteries " <<  mEnergy << endl;
@@ -66,12 +66,12 @@ class Head		/*==================================================================
 class Locomotor		/*=============================================================================================== LOCOMOTOR */
 {
 	private:
-		int mMaxSpeed;
-		int mPowerConsumed;
+		string mMaxSpeed;
+		string mPowerConsumed;
 
 	public:
 		Locomotor() {}
-		Locomotor(int aMaxSpeed, int aPowerConsumed)  : mMaxSpeed(aMaxSpeed), mPowerConsumed(mPowerConsumed) { }
+		Locomotor(string aMaxSpeed, string aPowerConsumed)  : mMaxSpeed(aMaxSpeed), mPowerConsumed(mPowerConsumed) { }
 		void mSave(ostream& ost)
 		{
 			ost << "#Locomotor " << mMaxSpeed; 
@@ -82,11 +82,11 @@ class Locomotor		/*=============================================================
 class Torso		/*=============================================================================================== TORSO */
 {
 	private:
-		int mBatteryCompartment;
+		string mBatteryCompartment;
 
 	public:
 		Torso() {}
-		Torso(int aBatteryCompartment)  : mBatteryCompartment(aBatteryCompartment) { }
+		Torso(string aBatteryCompartment)  : mBatteryCompartment(aBatteryCompartment) { }
 		void mSave(ostream& ost)
 		{
 			ost  << "#Torso " <<  mBatteryCompartment << endl;
@@ -151,15 +151,10 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 			}*/
 		}
 
-		void mCreate_Torso()
+		void mCreate_Torso(string aBatteryCompartment)
 		{
-			int lBatteryCompartment;
 
-			cout << "Number of Batteries: ";
-			cin >> lBatteryCompartment;
-			cin.ignore();
-
-			Torso torso(lBatteryCompartment);	// this is a locol object, is destroyed once gone, thus a problem when an instance of component instances a class of torso
+			Torso torso(aBatteryCompartment);	// this is a locol object, is destroyed once gone, thus a problem when an instance of component instances a class of torso
 			vTorso.push_back(torso);			// a rough work around to this problem, component creates a vector to keep them around (inheritance)
 		}
 
@@ -169,42 +164,21 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 			vHead.push_back(head);
 		}
 
-		void mCreate_Arm()
+		void mCreate_Arm(string aPowerConsumed)
 		{
-			int powerConsumed;
-
-			cout << "Power Consumed (in watts): ";
-			cin >> powerConsumed;
-			cin.ignore();
-
-			Arm arm(powerConsumed);
+			Arm arm(aPowerConsumed);
 			vArm.push_back(arm);	
 		}
 
-		void mCreate_Batteries()
+		void mCreate_Batteries(string aEnergy)
 		{
-			int energy;
-
-			cout << "Energy in batteries: ";
-			cin >> energy;
-			cin.ignore();
-
-			Batteries batteries(energy);
+			Batteries batteries(aEnergy);
 			vBatteries.push_back(batteries);
 		}
 
-		void mCreate_Locomotor()
+		void mCreate_Locomotor(string aMaxSpeed, string aPowerConsumed)
 		{
-			int maxSpeed;
-			int powerConsumed;
-
-			cout << "Max Speed: ";
-			cin >> maxSpeed;
-			cin.ignore();
-			cout << "Power Consumed (in watts): ";
-			cin >> powerConsumed;
-
-			Locomotor locomotor(maxSpeed, powerConsumed);
+			Locomotor locomotor(aMaxSpeed, aPowerConsumed);
 			vLocomotor.push_back(locomotor);
 		}
 
@@ -319,11 +293,12 @@ class Shop		/*==================================================================
 {
 	private:
 		std::vector<Model> vModel;
-		std::vector<Component> vComponent;
+//		std::vector<Component> vComponent;
 		std::vector<Customer> vCustomer;
 		std::vector<Employee> vEmployee;
 
 	public:
+		std::vector<Component> vComponent;
 		Shop() {}
 
 		void mCreate_Component()
@@ -485,16 +460,25 @@ void QuitCB(Fl_Widget * w, void * p)
 
 void CreateComponentCB(Fl_Widget * w, void * p)
 {
-	string name, number, weight, cost, description;
+	string name, number, weight, cost, description, choice, powerConsumed, energy, batteryCompartment, maxSpeed;
 
 	name = get_string("New Component", "Component Name: ");
 	number = get_string(name, "Part Number: ");
 	weight = get_string(name, "Weight: ");
 	cost = get_string(name, "Cost: ");
 	description = get_string(name, "Brief Description: ");
+	choice = get_string("Type", "What type do you want? ");
 
 	Component component(name, number, weight, cost, description);
-	component.mCreate_Head();
+	switch( stoi(choice) - 1)
+	{
+		case 0: { powerConsumed = get_string("Arm Specification", "Power Consumed: "); component.mCreate_Arm(powerConsumed); break; }
+		case 1: { energy = get_string("Batteries Specification", "Energy Consumed: ");component.mCreate_Batteries(energy); break; }
+		case 2: { component.mCreate_Head(); break; }
+		case 3: { maxSpeed = get_string("Locomotor Specification", "Max Speed: ");
+					powerConsumed = get_string("Arm Specification", "Power Consumed: "); component.mCreate_Locomotor(maxSpeed, powerConsumed); break; }
+		case 4: { batteryCompartment = get_string("Torso Specification", "Number of Batteries"); component.mCreate_Torso(batteryCompartment); break; }
+	}
 
 	shop.vComponent.push_back(component);
 }
