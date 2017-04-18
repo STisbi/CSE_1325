@@ -2,10 +2,22 @@
 #include <ostream>
 #include <fstream>
 
-#include <stdlib>
 
 #include <string>
 #include <vector>
+#include <exception>
+
+#include <FL/Fl.H>
+#include <FL/Fl_Window.H>
+#include <FL/Fl_Shared_Image.H>
+#include <FL/Fl_JPEG_Image.H>
+#include <FL/fl_ask.H>
+#include <Fl/Fl_Menu_Bar.H>
+#include <Fl/Fl_Menu_Item.H>
+#include <Fl/Fl_Pack.H>
+#include <Fl/Fl_Button.H>
+#include <Fl/Fl_Shared_Image.H>
+#include <Fl/Fl_PNG_Image.H>
 
 using namespace std;
 
@@ -84,12 +96,12 @@ class Torso		/*=================================================================
 class Component : public Torso, public Head, public Arm, public Batteries, public Locomotor		// =========================== COMPONENT
 {
 	private:
-		std::string mName;	// if not std:: then get error. Have to use using namespace std here
+		string mName;	// if not std:: then get error. Have to use using namespace std here
 							// However to avoid including this file ALONG WITH 'using the namespace std', good practice to put std:: instead
-		int mPartNum;
-		int mWeight;
-		int mCost;
-		std::string mDescription;
+		string mPartNum;
+		string mWeight;
+		string mCost;
+		string mDescription;
 
 
 	public:
@@ -99,48 +111,12 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 		std::vector <Batteries> vBatteries;
 		std::vector <Locomotor> vLocomotor;
 
-		Component()
-		{
-			int choice;
+		Component() {}
 
-			cout << "\nWhat kind of component are you creating?";
-			cout << "\n1. Torso\n2. Head\n3. Arm\n4. Batteries\n5. Locomotor\n\nChoice: ";
-			cin >> choice;
-			cin.ignore();
-
-
-			cout << "Component Name: ";
-			getline(cin, mName);
-
-			cout << "Component Part Number: ";
-			cin >> mPartNum;
-			cin.ignore();
-
-			cout << "Component Weight: ";
-			cin >> mWeight;
-			cin.ignore();
-
-			cout << "Component Cost: ";
-			cin >> mCost;
-			cin.ignore();
-
-			cout << "Component Description: ";
-			getline(cin, mDescription);
-
-			switch(choice - 1)
-			{
-				case 0: { mCreate_Torso(); break; }
-				case 1: { mCreate_Head(); break; }
-				case 2: { mCreate_Arm(); break; }
-				case 3: { mCreate_Batteries(); break; }
-				case 4: { mCreate_Locomotor(); break; }
-			}
-		}
-
-		Component(std::string aName, int aPartNum, int aWeight, int aCost, std::string aDescription, int aChoice)
+		Component(string aName, string aPartNum, string aWeight, string aCost, string aDescription)
 		 : mName(aName), mPartNum(aPartNum), mWeight(aWeight), mCost(aCost), mDescription(aDescription)
 		{
-			switch(aChoice - 1)
+/*			switch(aChoice - 1)
 			{
 				case 0:
 				{
@@ -172,7 +148,7 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 					cout << "\nLocomotor Created.";
 					break;
 				}
-			}
+			}*/
 		}
 
 		void mCreate_Torso()
@@ -234,9 +210,9 @@ class Component : public Torso, public Head, public Arm, public Batteries, publi
 
 		std::string mComponent_Info()
 		{
-			std::string partNum = std::to_string(mPartNum);
-			std::string weight = std::to_string(mWeight);
-			std::string cost = std::to_string(mCost);
+			std::string partNum = mPartNum;
+			std::string weight = mWeight;
+			std::string cost = mCost;
 
 			return("\nComponent Name: " + mName + "\nComponent Part Number: " + partNum + "\nComponent Weight: " + weight + 
 					"\nComponent Cost: " + cost + "\nComponent Description: " + mDescription + "\n");
@@ -247,18 +223,19 @@ class Model		/*=================================================================
 {
 	private:
 		std::string mModelName;
-		int mModelNumber;
-		int mModelPrice;
+		std::string mModelNumber;
+		std::string mModelPrice;
 
 	public:
-		Model(std::string aModelName, int aModelNumber, int aModelPrice) : mModelName(aModelName), mModelNumber(aModelNumber), mModelPrice(aModelPrice)
+		Model(std::string aModelName, std::string aModelNumber, std::string aModelPrice) 
+			: mModelName(aModelName), mModelNumber(aModelNumber), mModelPrice(aModelPrice)
 		{
 			int choice;
-			std::string name;
-			int part_number;
-			int weight;
-			int cost;
-			std::string description;
+			string name;
+			string part_number;
+			string weight;
+			string cost;
+			string description;
 			bool run = true;
 
 			while(run)
@@ -287,7 +264,7 @@ class Model		/*=================================================================
 				cout << "Component Description: ";
 				getline(cin, description);
 
-				Component component(name, part_number, weight, cost, description, choice);
+				Component component(name, part_number, weight, cost, description);
 				cout << "\nComponent Created. Would you like to add an additional part?\n1. Yes\n2. No\n\nChoice: ";
 				cin >> choice;
 				cin.ignore();
@@ -298,8 +275,8 @@ class Model		/*=================================================================
 
 		std::string mModel_Info()
 		{
-			std::string modelNumber = std::to_string(mModelNumber);	
-			std::string modelPrice = std::to_string(mModelPrice);
+			std::string modelNumber = mModelNumber;	
+			std::string modelPrice = mModelPrice;
 			return ("\nModel Name: " + mModelName + "\nModel Number: " + modelNumber + "\nModel Price: " + modelPrice + "\n");
 		}
 };
@@ -347,72 +324,7 @@ class Shop		/*==================================================================
 		std::vector<Employee> vEmployee;
 
 	public:
-		Shop()
-		{
-			int choice;
-
-			while(1)
-			{
-				cout << "\n1. Create Component\n2. Create Model\n3. List Components\n4. List Models\n5. Add Customer\n6. List Customers\n7. Add Employee\n8. List Employees\n9. Save Shop\n10. Exit\n\nChoice: ";
-				cin >> choice;
-				cin.ignore();
-
-				switch(choice - 1)
-				{
-					case 0:
-					{
-						mCreate_Component();
-						break;
-					}
-					case 1:
-					{
-						mCreate_Model();
-						break;
-					}
-					case 2:
-					{
-						mList_Components();
-						break;
-					}
-					case 3:
-					{
-						mList_Models();
-						break;
-					}
-					case 4:
-					{
-						mAdd_Customer();
-						break;
-					}
-					case 5:
-					{
-						mList_Customers();
-						break;
-					}
-					case 6:
-					{
-						mAdd_Employee();
-						break;
-					}
-					case 7:
-					{
-						mList_Employees();
-						break;
-					}
-					case 8:
-					{
-						mSave_Shop();
-						break;
-					}
-					case 9:
-					{
-						cout << "Goodbye.\n";
-						exit(0);
-						break;
-					}
-				}
-			}
-		}
+		Shop() {}
 
 		void mCreate_Component()
 		{
@@ -423,19 +335,17 @@ class Shop		/*==================================================================
 		void mCreate_Model()
 		{
 			string name;
-			int model_number;
-			int price;
+			string model_number;
+			string price;
 
 			cout << "Model Name: ";
 			getline(cin, name);
 
 			cout << "Model Number: ";
-			cin >> model_number;
-			cin.ignore();
+			getline(cin, model_number);
 
 			cout << "Model Price: ";
-			cin >> price;
-			cin.ignore();
+			getline(cin, price);
 
 			Model model(name, model_number, price);
 			vModel.push_back(model);
@@ -549,6 +459,101 @@ class Shop		/*==================================================================
 
 		}
 };
+/*===================================================================================================================================================================
+=====================================================================================================================================================================
+======================================================================== FLTK =======================================================================================
+=====================================================================================================================================================================
+===================================================================================================================================================================*/
+Fl_Window * win;
+Fl_Menu_Bar * bar;
+Shop shop;
+
+string get_string(string title, string prompt)
+{
+	fl_message_title(title.c_str());
+	fl_message_icon()->label("S");
+	string result{fl_input(prompt.c_str(), 0)};
+	return result;
+}
+
+void SaveCB(Fl_Widget * w, void * p) {}
+
+void QuitCB(Fl_Widget * w, void * p)
+{
+	win->hide();
+}
+
+void CreateComponentCB(Fl_Widget * w, void * p)
+{
+	string name, number, weight, cost, description;
+
+	name = get_string("New Component", "Component Name: ");
+	number = get_string(name, "Part Number: ");
+	weight = get_string(name, "Weight: ");
+	cost = get_string(name, "Cost: ");
+	description = get_string(name, "Brief Description: ");
+
+	Component component(name, number, weight, cost, description);
+	component.mCreate_Head();
+
+	shop.vComponent.push_back(component);
+}
+
+void CreateModelCB(Fl_Widget * w, void * p)
+{/*
+	string name, model_number, price;
+
+	name = get_string("New Model", "Model Name: ");
+	model_number = get_string(name, "Model Number: ");
+	price = get_string(name, "Model Price: ");
+
+	Model model(name, model_number, price);
+	vModel.push_back(model);*/
+}
+
+void CreateCustomerCB(Fl_Widget * w, void * p) {}
+
+void CreateEmployeeCB(Fl_Widget * w, void * p) {}
+
+void ViewComponentsCB(Fl_Widget * w, void * p) {}
+
+void ViewModelsCB(Fl_Widget * w, void * p) {}
+
+void HelpCB(Fl_Widget * w, void * p) {}
+
+Fl_Menu_Item menuitems[] = {
+  { "&File", 0, 0, 0, FL_SUBMENU },
+	{ "&Save", FL_ALT + 's', (Fl_Callback *)SaveCB},
+	{ "&Quit", FL_ALT + 'n', (Fl_Callback *)QuitCB},
+	{0},
+  { "&Managment", 0, 0, 0, FL_SUBMENU },
+	{ "&Create Component", FL_ALT + 'a', (Fl_Callback *)CreateComponentCB},
+	{ "&Create Model", FL_ALT + 'l', (Fl_Callback *)CreateModelCB},
+	{ "&Create Customer", FL_ALT + 'o', (Fl_Callback *)CreateCustomerCB},
+	{ "&Create Employee", FL_ALT + 'i', (Fl_Callback *)CreateEmployeeCB},
+	{0},
+  { "&Robots", 0, 0, 0, FL_SUBMENU },
+	{ "&View Components", FL_ALT + 'p', (Fl_Callback *)ViewComponentsCB},
+	{ "&View Models", FL_ALT + 'k', (Fl_Callback *)ViewModelsCB },
+	{0},
+  { "&Help", 0, 0, 0, FL_SUBMENU },
+	{ "&Help-Desk", FL_ALT + 'h', (Fl_Callback *)HelpCB},
+	{0},
+  {0}
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*===================================================================================================================================================================
 =====================================================================================================================================================================
@@ -558,9 +563,17 @@ class Shop		/*==================================================================
 
 int main(void)
 {
-	Shop shop;
+//	Shop shop;
 
-	return 0;
+	win = new Fl_Window(640, 480, "Oni Spartan Shop");
+	bar = new Fl_Menu_Bar(0, 0, 360, 30);
+	bar->menu(menuitems);
+
+	win->show();
+
+
+	return (Fl::run());
+//	return 0;
 }
 
 

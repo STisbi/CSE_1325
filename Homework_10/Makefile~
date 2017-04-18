@@ -1,5 +1,4 @@
 # Makefile for Library
-CXX = g++
 CXXFLAGS = -w -std=c++0x
 LDFLAGS = -L/usr/local/lib -lXext -lm -Wl,-Bsymbolic-functions -lfltk_images -lfltk -lX11
 
